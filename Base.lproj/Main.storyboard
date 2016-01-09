@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Primary View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="PrimaryViewController" customModule="KPTVImageGallery" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="cHM-LZ-rd8">
+                                <rect key="frame" x="940" y="520" width="40" height="40"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="cHM-LZ-rd8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RXg-fL-1Ua"/>
+                            <constraint firstItem="cHM-LZ-rd8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YbB-FR-Wxp"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Lbc-9X-QYF" appends="YES" id="KW2-ta-ofL"/>
+                            <outletCollection property="gestureRecognizers" destination="RUM-JN-2zk" appends="YES" id="CNj-6h-RIL"/>
+                            <outletCollection property="gestureRecognizers" destination="n3h-ZE-mUS" appends="YES" id="27S-Gr-J6U"/>
+                            <outletCollection property="gestureRecognizers" destination="yxZ-D5-wEN" appends="YES" id="Trq-Jk-vA5"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="cHM-LZ-rd8" id="lJn-PJ-4MX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Lbc-9X-QYF">
+                    <connections>
+                        <action selector="swipeActionCollection:" destination="BYZ-38-t0r" id="9Tw-Ok-iS3"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="RUM-JN-2zk">
+                    <connections>
+                        <action selector="swipeActionCollection:" destination="BYZ-38-t0r" id="Yge-XP-pFs"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="n3h-ZE-mUS">
+                    <connections>
+                        <action selector="swipeActionCollection:" destination="BYZ-38-t0r" id="IaH-QV-umD"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="yxZ-D5-wEN">
+                    <connections>
+                        <action selector="swipeActionCollection:" destination="BYZ-38-t0r" id="HOt-t0-GBq"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+        </scene>
+    </scenes>
+</document>
