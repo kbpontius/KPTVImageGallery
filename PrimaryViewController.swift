@@ -11,8 +11,15 @@ import UIKit
 class PrimaryViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    // MARK: - PRIVATE ATTRIBUTES -
+    
     private var imageQueueManager: ImageQueueManager!
     private var queueTimer: NSTimer!
+    private let screenBounds = UIScreen.mainScreen().bounds
+    
+    // MARK: - INJECTED ATTRIBUTES -
+    
+    var viewConfiguration: ViewConfig!
     
     private var errorCount = 0 {
         didSet {
@@ -22,9 +29,10 @@ class PrimaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         activityIndicator.hidden = true
         
-        print("Screen Width: \(UIScreen.mainScreen().bounds.width)")
+        setupViewConfiguration()
         
         imageQueueManager = ImageQueueManager {
             self.generateImageView()
@@ -32,12 +40,35 @@ class PrimaryViewController: UIViewController {
         }
     }
     
-    // MARK: - GALLERY METHODS
+    // MARK: - VIEW CONFIGURATION -
     
+    private func setupViewConfiguration() {
+        setupBackgroundLightLevel(viewConfiguration.lightLevel)
+    }
+    
+    private func setupBackgroundLightLevel(lightLevel: LightLevel) {
+        switch lightLevel {
+        case .Light:
+            // Don't make any changes.
+            return
+        case .Dark:
+            // Add dark view.
+            let darkView = UIView(frame: CGRectMake(0, 0, screenBounds.width, screenBounds.height))
+            darkView.backgroundColor = UIColor.blackColor()
+            darkView.alpha = 0.5
+            view.insertSubview(darkView, atIndex: 0)
+        }
+    }
+    
+    // MARK: - GALLERY METHODS -
+    
+    /// This is a selector method and must remain internal.
     func generateImageView() {
         if let imageView = imageQueueManager.requestNewImage() {
             imageView.alpha = 0.0
-            self.view.insertSubview(imageView, atIndex: 0)
+            
+            // Insert atIndex 1 b/c the LightLevel view is at 0.
+            self.view.insertSubview(imageView, atIndex: 1)
             
             UIView.animateWithDuration(1, delay: 0, options: .CurveLinear, animations: {
                 imageView.alpha = 1.0
@@ -60,7 +91,7 @@ class PrimaryViewController: UIViewController {
         }
     }
     
-    // MARK: - SWIPE METHODS
+    // MARK: - SWIPE METHODS -
     
     @IBAction func swipeActionCollection(sender: UISwipeGestureRecognizer) {
         switch(sender.direction) {
@@ -77,7 +108,7 @@ class PrimaryViewController: UIViewController {
         }
     }
     
-    // MARK: - HELPER METHODS
+    // MARK: - HELPER METHODS -
     
     private func getRandomPoint(imageView: UIImageView) -> CGPoint {
         let randX = getRand(1280)
