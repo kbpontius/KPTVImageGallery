@@ -1,9 +1,104 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="N5I-bX-e0a">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="MH2-iS-fOG">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="31y-gd-qkm">
+            <objects>
+                <viewController id="MH2-iS-fOG" customClass="HomeViewController" customModule="KPTVImageGallery" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fMt-gs-HJa"/>
+                        <viewControllerLayoutGuide type="bottom" id="z31-Ob-by6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ki6-PS-XTt">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VsJ-uI-pwy">
+                                <rect key="frame" x="779" y="568" width="362" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <segue destination="T0O-Ur-O9E" kind="show" identifier="segueToSettingsVC" id="pTm-Cw-2Sr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To Wallpaper" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prL-q3-9GQ">
+                                <rect key="frame" x="662" y="95" width="597" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPC-7X-8l8">
+                                <rect key="frame" x="779" y="426" width="362" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Begin Slideshow"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="segueToPrimaryVC" id="j1l-M2-cVD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="VsJ-uI-pwy" firstAttribute="centerX" secondItem="ki6-PS-XTt" secondAttribute="centerX" id="CoP-f1-FOO"/>
+                            <constraint firstItem="GPC-7X-8l8" firstAttribute="top" secondItem="prL-q3-9GQ" secondAttribute="bottom" constant="259" id="Igw-CW-VF9"/>
+                            <constraint firstItem="prL-q3-9GQ" firstAttribute="top" secondItem="fMt-gs-HJa" secondAttribute="bottom" constant="95" id="Rcf-1b-Way"/>
+                            <constraint firstItem="prL-q3-9GQ" firstAttribute="centerX" secondItem="ki6-PS-XTt" secondAttribute="centerX" id="Ycw-vY-NEr"/>
+                            <constraint firstItem="GPC-7X-8l8" firstAttribute="centerX" secondItem="ki6-PS-XTt" secondAttribute="centerX" id="inA-Gh-PQq"/>
+                            <constraint firstItem="VsJ-uI-pwy" firstAttribute="width" secondItem="GPC-7X-8l8" secondAttribute="width" id="qFR-kO-GXj"/>
+                            <constraint firstItem="VsJ-uI-pwy" firstAttribute="top" secondItem="GPC-7X-8l8" secondAttribute="bottom" constant="56" id="qdG-I4-bBl"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eYP-Qd-ruq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3841" y="379"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="b1r-qG-GOT">
+            <objects>
+                <viewController id="T0O-Ur-O9E" customClass="SettingsViewController" customModule="KPTVImageGallery" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mXH-JE-NeV"/>
+                        <viewControllerLayoutGuide type="bottom" id="WXA-mC-jWS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jCd-nf-5H8">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="40" sectionFooterHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="Pjq-sk-s1q">
+                                <rect key="frame" x="20" y="0.0" width="551" height="1080"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="551" id="e7v-rn-3tz"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="90" id="caO-fp-q2f">
+                                        <rect key="frame" x="0.0" y="54" width="551" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="caO-fp-q2f" id="Wga-ia-Qbu">
+                                            <rect key="frame" x="0.0" y="0.0" width="535" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="WXA-mC-jWS" firstAttribute="top" secondItem="Pjq-sk-s1q" secondAttribute="bottom" id="JwY-hG-mXZ"/>
+                            <constraint firstItem="Pjq-sk-s1q" firstAttribute="leading" secondItem="jCd-nf-5H8" secondAttribute="leadingMargin" id="SzO-gR-FJN"/>
+                            <constraint firstItem="Pjq-sk-s1q" firstAttribute="top" secondItem="mXH-JE-NeV" secondAttribute="bottom" id="o1x-cS-qz6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Pjq-sk-s1q" id="Hbi-nR-qdT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QPD-k4-vp1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1708" y="1171"/>
+        </scene>
         <!--Primary View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -59,50 +154,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-        </scene>
-        <!--Settings View Controller-->
-        <scene sceneID="3wh-Fv-TVw">
-            <objects>
-                <viewController id="N5I-bX-e0a" customClass="SettingsViewController" customModule="KPTVImageGallery" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="IMT-Ol-zsg"/>
-                        <viewControllerLayoutGuide type="bottom" id="RNT-a3-xiz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="l8j-RI-aPB">
-                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUS-97-dhS">
-                                <rect key="frame" x="825" y="442" width="273" height="86"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Light Mode"/>
-                                <connections>
-                                    <action selector="btnLightModeTapped:" destination="N5I-bX-e0a" eventType="primaryActionTriggered" id="Jti-xN-Pdp"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBT-CQ-IRj">
-                                <rect key="frame" x="826" y="552" width="268" height="86"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Dark Mode"/>
-                                <connections>
-                                    <action selector="btnDarkModeTapped:" destination="N5I-bX-e0a" eventType="primaryActionTriggered" id="BQo-mk-MZT"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please Select Display Style" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptI-dD-i8A">
-                                <rect key="frame" x="677" y="339" width="566" height="58"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                    </view>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="segueShowPrimaryViewController" id="Dao-tF-CyQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rFf-jE-ZYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1714" y="382"/>
+            <point key="canvasLocation" x="-1708" y="-345"/>
         </scene>
     </scenes>
 </document>

@@ -23,7 +23,7 @@ class ViewConfig {
     }
 }
 
-enum LightLevel {
+enum LightLevel: String {
     case Light
     case Dark
 }
